@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3vw;  /* ข้อความใหญ่ขึ้น */
+    border: 2px solid black;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: white; /* ตัวหนังสือสีขาว */
+}
+
+.jedi {
+    background-color: rgb(48, 176, 219); /* ฟ้า */
+}
+
+.empire {
+    background-color: rgb(200, 0, 0); /* แดง */
+}
+
