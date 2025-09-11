@@ -1,0 +1,28 @@
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background: #d4d3d3;
+}
+
+.menu li {
+  position: relative; 
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  background: #c2bfbf;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li:hover .dropdown {
+  display: block;
+}
