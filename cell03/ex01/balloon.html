@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balloon</title>
+  <style>
+    /* สไตล์ของบอลลูน */
+    #balloon {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border-radius: 50%; /* ทำให้เป็นวงกลม */
+      margin: 50px auto;
+      cursor: pointer;
+      transition: all 0.2s ease; /* ทำให้ขยาย/หดนุ่มนวล */
+    }
+  </style>
+</head>
+<body>
+  <div id="balloon"></div>
+
+  <script>
+    const balloon = document.getElementById("balloon");
+
+    // ค่าเริ่มต้น
+    let size = 200;
+    let colors = ["red", "green", "blue"]; 
+    let colorIndex = 0;
+
+    // เมื่อคลิกที่บอลลูน → ขยาย + เปลี่ยนสีตามลำดับ
+    balloon.addEventListener("click", () => {
+      size += 10;
+      colorIndex = (colorIndex + 1) % colors.length;
+
+      if (size > 420) {
+        // ถ้าใหญ่เกิน 420px → ระเบิด (reset)
+        size = 200;
+        colorIndex = 0;
+      }
+
+      updateBalloon();
+    });
+
+    // เมื่อ mouse ออกจากบอลลูน → หด + สีถอยหลัง
+    balloon.addEventListener("mouseleave", () => {
+      size = Math.max(200, size - 5); // ไม่ให้เล็กกว่า 200
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+      updateBalloon();
+    });
+
+    // ฟังก์ชันอัปเดตขนาดและสี
+    function updateBalloon() {
+      balloon.style.width = size + "px";
+      balloon.style.height = size + "px";
+      balloon.style.backgroundColor = colors[colorIndex];
+    }
+  </script>
+</body>
+</html>
